@@ -1,3 +1,4 @@
 # Pinia Course 
 
-Pinia (une solution de gestion d'état pour Vue) et comment nous l'utilisons généralement dans une application Vue.
+Pinia est désormais la bibliothèque de magasin recommandée pour gérer la gestion des états dans vue, en remplacement de VueX. 
+Créer une application de compteur simple pour mettre en valeur toutes ses fonctionnalités.
