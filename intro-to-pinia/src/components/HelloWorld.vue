@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia';
 import { useCounterStore } from '../store/counter';
 
   const store = useCounterStore();
-  const { state } = storeToRefs(store);
+  const { state, countDoubled } = storeToRefs(store);
   const { increaseN, decreaseN } = store;
 </script>
 
@@ -13,6 +13,11 @@ import { useCounterStore } from '../store/counter';
     <div class="wrap">
       <button @click="increaseN">+</button>
       <button @click="decreaseN">-</button>
+    </div>
+    <hr>
+    <div class="doubled">
+      <h2>Nombre doublé :</h2>
+      <p>{{ countDoubled }}</p>
     </div>
   </main>
 </template>
