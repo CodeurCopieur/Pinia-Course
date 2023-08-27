@@ -19,5 +19,7 @@ import { useCounterStore } from '../store/counter';
       <h2>Nombre doublé :</h2>
       <p>{{ countDoubled }}</p>
     </div>
+    <hr>
+    <input type="number" v-model="state.count">
   </main>
 </template>
