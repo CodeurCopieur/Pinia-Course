@@ -3,11 +3,16 @@ import { storeToRefs } from 'pinia';
 import { useCounterStore } from '../store/counter';
 
   const store = useCounterStore();
-  const { count } = storeToRefs(store);
+  const { state } = storeToRefs(store);
+  const { increaseN, decreaseN } = store;
 </script>
 
 <template>
   <main>
-    <h1>{{ count }}</h1>
+    <h1>{{ state.count }}</h1>
+    <div class="wrap">
+      <button @click="increaseN">+</button>
+      <button @click="decreaseN">-</button>
+    </div>
   </main>
 </template>
