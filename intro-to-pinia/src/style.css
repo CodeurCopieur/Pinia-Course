@@ -74,6 +74,22 @@ button:focus-visible {
   /* margin: 0 auto; */
   padding: 2rem;
   text-align: center;
+  width: 100%;
+}
+
+.wrap {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.wrap > button {
+  display: block;
+  background-color: #ccc;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  line-height: 0;
 }
 
 @media (prefers-color-scheme: light) {
