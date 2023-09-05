@@ -2,3 +2,8 @@
 intro-to-pinia/package-lock.json
 intro-to-pinia/.vscode/extensions.json
 intro-to-pinia/src/assets/vue.svg
+pinia-tasks/.vscode/extensions.json
+pinia-tasks/public/vite.svg
+pinia-tasks/src/assets/vue.svg
+pinia-tasks/.vscode/extensions.json
+pinia-tasks/src/components/HelloWorld.vue
