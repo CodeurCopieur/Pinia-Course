@@ -34,7 +34,7 @@
     <div
       v-if="filter === 'all'" 
       class="task-list container max-w-3xl mx-auto text-white px-4 mb-5">
-      <p class="text-center text-gray-500">Vous avez {{ taskStore.totalCount }} à faire</p>
+      <p class="text-center text-gray-500">Vous avez {{ taskStore.totalCount }} tâche{{ taskStore.totalCount > 1 ? 's' : ''  }}</p>
       <div 
         v-for="(task, i) in taskStore.tasks" 
         :key="task.id"
@@ -46,7 +46,7 @@
     <div 
       v-if="filter === 'favs'"
       class="task-list container max-w-3xl mx-auto text-white px-4">
-      <p class="text-center text-gray-500">Vous avez {{ taskStore.favsCount }} tâche {{ taskStore.favsCount > 1 ? 's' : ''  }} favorites</p>
+      <p class="text-center text-gray-500">Vous avez {{ taskStore.favsCount }} tâche{{ taskStore.favsCount > 1 ? 's' : ''  }} favorite</p>
       <div 
         v-for="(task, i) in taskStore.favs" 
         :key="task.id"
