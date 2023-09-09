@@ -4,6 +4,7 @@
   import { ref } from 'vue'
   import { useTaskStore } from './stores/taskStore'
   import TaskDetails from './components/TaskDetails.vue'
+  import TaskForm from './components/TaskForm.vue'
 
   const taskStore  = useTaskStore();
 
@@ -19,6 +20,12 @@
       <h1 class="m-0 pt-6 ml-3.5 text-gray-500" style="rotate: 2deg;">Pinia Tasks</h1>
     </header>
 
+    <!-- new tak form  -->
+    <div class="new-task-form">
+      <TaskForm/>
+    </div>
+
+    <!-- filter -->
     <nav class="flex justify-center h-14 mb-10">
       <button 
         @click="filter = 'all'"
