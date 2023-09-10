@@ -4,9 +4,7 @@
   import { v4 as uuidv4 } from 'uuid'
   import { useTaskStore } from '../stores/taskStore'
 
-
   const taskStore  = useTaskStore();
-
 
   const state = reactive({
     newTask: ''
