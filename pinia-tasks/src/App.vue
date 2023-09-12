@@ -8,6 +8,9 @@
 
   const taskStore  = useTaskStore();
 
+  // fetch tasks
+  taskStore.getTasks()
+
   const filter = ref('all');
 </script>
 
@@ -36,6 +39,9 @@
         :class="filter === 'favs' ? 'border-b-indigo-500' : 'border-b-transparent'"
         class="ml-4 cursor-pointer border-t-0 border-r-0 border-l-0 bg-transparent">Les tâches favorites</button>
     </nav>
+
+    <!-- loading -->
+    <div class="loading border border-indigo-500 max-w-2xl bg-indigo-400 p-1.5 text-center my-8 mx-auto text-white" v-if="taskStore.loading">Loading tâches...</div>
 
     <!-- task list -->
     <div
