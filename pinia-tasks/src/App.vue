@@ -2,11 +2,15 @@
 
   /* imports */
   import { ref } from 'vue'
+  import { storeToRefs } from 'pinia'
   import { useTaskStore } from './stores/taskStore'
+
   import TaskDetails from './components/TaskDetails.vue'
   import TaskForm from './components/TaskForm.vue'
 
   const taskStore  = useTaskStore();
+
+  const { tasks, loading, favs, totalCount, favsCount } = storeToRefs(taskStore)
 
   // fetch tasks
   taskStore.getTasks()
@@ -41,17 +45,17 @@
     </nav>
 
     <!-- loading -->
-    <div class="loading border border-indigo-500 max-w-2xl bg-indigo-400 p-1.5 text-center my-8 mx-auto text-white" v-if="taskStore.loading">Loading tâches...</div>
+    <div class="loading border border-indigo-500 max-w-2xl bg-indigo-400 p-1.5 text-center my-8 mx-auto text-white" v-if="loading">Loading tâches...</div>
 
     <!-- task list -->
     <div
       v-if="filter === 'all'" 
       class="task-list container max-w-3xl mx-auto text-white px-4 mb-5">
-      <p class="text-center text-gray-500">Vous avez {{ taskStore.totalCount }} tâche{{ taskStore.totalCount > 1 ? 's' : ''  }}</p>
+      <p class="text-center text-gray-500">Vous avez {{ totalCount }} tâche{{ totalCount > 1 ? 's' : ''  }}</p>
       <div 
-        v-for="(task, i) in taskStore.tasks" 
+        v-for="(task, i) in tasks" 
         :key="task.id"
-        :class="{'mb-4': i !== taskStore.tasks.length - 1}">
+        :class="{'mb-4': i !== tasks.length - 1}">
         <TaskDetails :task="task"/>
       </div>
     </div>
@@ -59,14 +63,16 @@
     <div 
       v-if="filter === 'favs'"
       class="task-list container max-w-3xl mx-auto text-white px-4">
-      <p class="text-center text-gray-500">Vous avez {{ taskStore.favsCount }} tâche{{ taskStore.favsCount > 1 ? 's' : ''  }} favorite</p>
+      <p class="text-center text-gray-500">Vous avez {{ favsCount }} tâche{{ favsCount > 1 ? 's' : ''  }} favorite</p>
       <div 
-        v-for="(task, i) in taskStore.favs" 
+        v-for="(task, i) in favs" 
         :key="task.id"
-        :class="{'mb-4': i !== taskStore.favs.length - 1}">
+        :class="{'mb-4': i !== favs.length - 1}">
         <TaskDetails :task="task"/>
       </div>
     </div>
+
+    <button @click="$reset">Reset state</button>
   </main>
 </template>
 
