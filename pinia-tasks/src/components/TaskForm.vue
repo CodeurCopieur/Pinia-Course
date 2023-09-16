@@ -12,7 +12,6 @@
 
   const handleSubmit = () => {
 
-    console.log('ou');
     if (state.newTask.length > 0) {
       taskStore.addTask({
         id: uuidv4(),
